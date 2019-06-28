@@ -1,0 +1,8 @@
+#IMAGE: Get the base image for Liberty
+FROM openliberty/open-liberty:webProfile8-ubi-min
+
+#BINARIES: Add in all necessary application binaries
+COPY --chown=1001:0 src/main/liberty/config/server.xml /config/
+COPY --chown=1001:0 target/SessionSample-1.0.war /config/apps/SessionSample.war
+
+
