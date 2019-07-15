@@ -5,4 +5,9 @@ FROM open-liberty:webProfile8
 COPY --chown=1001:0 src/main/liberty/config/server.xml /config/
 COPY --chown=1001:0 target/SessionSample-1.0.war /config/apps/SessionSample.war
 
+# session persistence
+COPY --chown=1001:0 db2drivers/ /config/resources/db2
+COPY --chown=1001:0 src/main/liberty/config/session-db.xml /config/configDropins/overrides/
+
+
 RUN configure.sh
